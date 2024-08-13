@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "857872674501",
+    "project_id": "firstfirebase-e6394",
+    "storage_bucket": "firstfirebase-e6394.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857872674501:android:3b0cb19480d3f6f83ccaac",
+        "android_client_info": {
+          "package_name": "com.example.emart_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857872674501-3v30mc3h9867krlsvudmna9peh8l9gk9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMOIUcdrghW-uSRXHdf6VC_NC_YTfZ1sI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857872674501-3v30mc3h9867krlsvudmna9peh8l9gk9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

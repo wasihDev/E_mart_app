@@ -1,0 +1,111 @@
+{
+  "categories": [
+  {
+    "name": "women Clothing",
+    "subcategory": [
+      "Wedding & Events",
+      "Tops & Sets",
+      "Watches",
+      "Sun Dress",
+      "Ball Gown",
+      "Maxi"
+
+    ]
+  },
+    {
+      "name": "Men Clothing & Fashion",
+      "subcategory": [
+        "Outwear & Jacket",
+        "Formal Dress",
+        "Accessories",
+        "Ethnic Wear Clothing",
+        "Western Wear Clothing",
+        "Sports Wear Clothing"
+
+      ]
+    },
+    {
+      "name": "Computer & Accessoriies",
+      "subcategory": [
+        "Laptop",
+        "gaming PC",
+        "Official Equipment",
+        "Monitor",
+        "Mouse",
+        "Keyboard"
+
+      ]
+    },
+    {
+      "name": "Automobile",
+      "subcategory": [
+        "Cars",
+        "Bikes",
+        "Sports Cars",
+        "Compact Cars",
+        "Coupe Cars",
+        "Sedan"
+      ]
+    },
+    {
+      "name": "kids & Toys",
+      "subcategory": [
+        "Shoes and bags",
+        "Baby Clothing",
+        "Girls Toys",
+        "Creative Toys",
+        "Movement Toys",
+        "Wooden Toys"
+
+      ]
+    },
+    {
+      "name": "Sports",
+      "subcategory": [
+        "Cycling",
+        "Cricket",
+        "Swimmer",
+        "Football",
+        "Badminton",
+        "Sneakers"
+
+      ]
+    },
+    {
+      "name": "Jewellery",
+      "subcategory": [
+        "Necklace",
+        "Gold",
+        "Earrings",
+        "Bracelets",
+        "Pendant",
+        "Rings"
+
+      ]
+    },
+    {
+      "name": "Cellphone & Tab",
+      "subcategory": [
+        "Smartphones",
+        "Tablets",
+        "Accessories",
+        "satellite Phones",
+        "Flip Phones",
+        "Foldable phone"
+
+      ]
+    },
+    {
+      "name": "Furniture",
+      "subcategory": [
+        "Sofa",
+        "Beds",
+        "chairs",
+        "Table",
+        "Ottoman",
+        "Stool"
+
+      ]
+    }
+  ]
+}
