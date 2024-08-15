@@ -24,17 +24,19 @@ class ChatController extends GetxController {
 
   var msgController = TextEditingController();
 
-  dynamic chatDocId;
+  var chatDocId = ''.obs;
 
   getChatId() async {
     isLoading(true);
+
     await chats
         .where('users', isEqualTo: {friendId: null, currentId: null})
         .limit(1)
         .get()
         .then((QuerySnapshot snapshot) {
           if (snapshot.docs.isNotEmpty) {
-            chatDocId = snapshot.docs.single.id;
+            // Future.delayed(Duration(seconds: 10));
+            chatDocId.value = snapshot.docs.single.id;
           } else {
             chats.add({
               'created_on': null,
@@ -45,24 +47,24 @@ class ChatController extends GetxController {
               'friend_name': friendName,
               'sender_name': senderName
             }).then((val) {
-              chatDocId = val.id;
+              chatDocId.value = val.id;
             });
           }
-          log('chatDocID $chatDocId');
+          log('chatDocID ${chatDocId.value}');
         });
     isLoading(false);
   }
 
   sendMsg(String msg) async {
     if (msg.trim().isNotEmpty) {
-      chats.doc(chatDocId).update({
+      chats.doc(chatDocId.value).update({
         'created_on': FieldValue.serverTimestamp(),
         'last_msg': msg,
         'toId': friendId,
         'fromId': currentId,
       });
 
-      chats.doc(chatDocId).collection(messageCollection).doc().set({
+      chats.doc(chatDocId.value).collection(messageCollection).doc().set({
         'created_on': FieldValue.serverTimestamp(),
         'msg': msg,
         'uid': currentId,

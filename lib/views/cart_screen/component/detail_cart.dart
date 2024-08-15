@@ -5,27 +5,24 @@ import 'package:flutter/cupertino.dart';
 Widget detailCart(
     {required String title, required width, required String count}) {
   return Container(
-    height: 90,
+    height: 70,
     width: width,
     decoration: BoxDecoration(
         color: whiteColor, borderRadius: BorderRadius.circular(10)),
-    padding: EdgeInsets.all(8),
+    padding: const EdgeInsets.all(8),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           count,
-          style: TextStyle(color: darkFontGrey, fontFamily: bold, fontSize: 16),
+          style: const TextStyle(
+              color: darkFontGrey, fontFamily: bold, fontSize: 16),
         ),
-        SizedBox(
-          height: 5,
-        ),
-        Text(
-          title,
-          style: TextStyle(color: darkFontGrey),
-          textAlign: TextAlign.center,
-        ),
+        const SizedBox(height: 5),
+        Text(title,
+            style: const TextStyle(color: darkFontGrey),
+            textAlign: TextAlign.center),
       ],
     ),
   );

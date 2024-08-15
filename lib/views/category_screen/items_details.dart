@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/consts/snackbars.dart';
 import 'package:emart_app/controller/product_controller.dart';
@@ -28,7 +30,7 @@ class ItemsDetails extends StatelessWidget {
                   Get.back();
                   controller.clearValues();
                 },
-                child: Icon(Icons.arrow_back)),
+                child: const Icon(Icons.arrow_back)),
             actions: [
               IconButton(
                   onPressed: () {},
@@ -36,12 +38,23 @@ class ItemsDetails extends StatelessWidget {
                     Icons.share,
                     color: darkFontGrey,
                   )),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.favorite_outline,
-                    color: darkFontGrey,
-                  )),
+              Obx(() {
+                return IconButton(
+                    onPressed: () {
+                      if (controller.isFav.value) {
+                        controller.removeToWishList(itemData.id);
+                      } else {
+                        controller.addToWishList(itemData.id);
+                      }
+                      log('id ${itemData.id}');
+                    },
+                    icon: controller.isFav.value
+                        ? const Icon(Icons.favorite, color: Colors.red)
+                        : const Icon(
+                            Icons.favorite_outline,
+                            color: darkFontGrey,
+                          ));
+              }),
             ],
           ),
           body: Column(children: [
@@ -128,7 +141,7 @@ class ItemsDetails extends StatelessWidget {
                               )),
                               InkWell(
                                 onTap: () {
-                                  Get.to(() => ChatScreen(), arguments: [
+                                  Get.to(() => const ChatScreen(), arguments: [
                                     itemData['p_seller'],
                                     itemData['vender_id'],
                                   ]);
@@ -261,7 +274,7 @@ class ItemsDetails extends StatelessWidget {
                         img: itemData["p_image"][0],
                         price: controller.totalPrice.value,
                         name: itemData["p_name"],
-                        vender: itemData["p_seller"],
+                        vender: itemData["vender_id"],
                         qty: controller.quantity.value,
                       );
                       successSnack('Item added to cart');

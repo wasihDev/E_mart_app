@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emart_app/consts/firebase_const.dart';
 import 'package:emart_app/consts/snackbars.dart';
 import 'package:emart_app/services/category_model.dart';
@@ -9,6 +10,7 @@ class ProductController extends GetxController {
   var quantity = 0.obs;
   var colorPicker = 0.obs;
   var totalPrice = 0.obs;
+  var isFav = false.obs;
   quantityIncrease(pQuantity) {
     if (quantity.value < pQuantity) {
       quantity.value++;
@@ -59,5 +61,30 @@ class ProductController extends GetxController {
     colorPicker.value = 0;
     quantity.value = 0;
     totalPrice.value = 0;
+  }
+
+  addToWishList(docId) async {
+    await firestore.collection(products).doc(docId).set({
+      'p_wishlist': FieldValue.arrayUnion([currentUser!.uid])
+    }, SetOptions(merge: true));
+    isFav(true);
+    successSnack('Added to wishlist');
+  }
+
+  removeToWishList(docId) async {
+    await firestore.collection(products).doc(docId).set({
+      'p_wishlist': FieldValue.arrayRemove([currentUser!.uid])
+    }, SetOptions(merge: true));
+    isFav(false);
+    errorSnack('Remove from wishlist');
+  }
+
+  checkIfFav(QueryDocumentSnapshot<Object?> data) async {
+    if (data['p_wishlist'].contains(currentUser!.uid)) {
+      isFav(true);
+    } else {
+      isFav(false);
+    }
+    ;
   }
 }
